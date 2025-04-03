@@ -1,0 +1,394 @@
+/* General Styles (Applies to all pages) */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column;
+    font-family: "Gabriela", serif;
+    text-align: center;
+    background-color: rgb(255, 242, 231);
+}
+
+p {
+    font-size: 1.25em;
+}
+
+/* Header Styles (Applies to header.ejs) */
+header {
+    background-color: pink;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+    font-family: "Shrikhand", serif;
+    font-size: 3.5em;
+    color: white;
+    font-weight: lighter;
+    -webkit-text-stroke: rgb(216, 72, 120) 2px;
+    padding-left: 10px;
+}
+
+.browse-title {
+    margin: 0;
+    font-family: "Shrikhand", serif;
+    font-size: 3em;
+    color: white;
+    font-weight: lighter;
+    -webkit-text-stroke: rgb(216, 72, 120) 2px;
+    padding-left: 10px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Center Search Bar */
+.search {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: -125px;
+}
+
+/* Search Form Styling */
+.searchForm {
+    display: flex; /* Align input and button in a row */
+    /*align-items: center;*/
+    gap: 5px; /* Small space between input and button */
+    padding-left: -130px;
+    left: -150px;
+}
+
+.searchForm input {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 300px; 
+    height: 40px;
+    border: rgb(216, 72, 120) 2px solid;
+}
+
+.searchBtn {
+    background-color: rgb(216, 72, 120);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80px;
+    height: auto;
+    position: relative;
+    top: -5px;
+}
+
+/* No Blue/Purple Links After Click  */
+nav a,
+.title a {
+    text-decoration: none;
+    color: white;
+}
+
+nav a {
+    font-weight: bold;
+    font-size: larger;
+    padding: 5px 10px; /* Add padding for better hover effect */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+nav a:hover {
+    background-color: rgb(216, 72, 120); /* Pink hover background */
+    color: white; /* Change text color on hover */
+}
+
+.title a {
+    -webkit-text-stroke: rgb(216, 72, 120) 2px;
+}
+
+.intro {
+    margin: 0;
+    font-family: "Shrikhand", serif;
+    font-size: 3em;
+    color: rgb(216, 72, 120);
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 30px;
+}
+
+nav a:visited,
+nav a:active {
+    color: rgb(255, 255, 255);
+
+}
+
+/* Nav Bar Item Layout */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+    position: relative;
+    left: -40px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+/* Button Styles (Applies to All Forms) */
+button {
+    background-color: pink;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 100%; /* Full width button */
+}
+
+button:hover {
+    background-color: #f06292;
+}
+
+/* Items Page (items.ejs) */
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 items per row */
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+    padding-bottom: 50px;
+}
+
+.sell-name {
+    font-size: smaller;
+}
+
+span {
+    color: #6d2aa0;
+}
+
+.item-title {
+    color: rgb(216, 72, 120);
+    font-family: "Shrikhand", serif;
+    font-weight: lighter;
+    font-size: 1.5em;
+}
+
+.item {
+    width: 260px;
+    height: 410px;
+    border: 2px solid rgb(216, 72, 120);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.item h1, 
+.item h3, 
+.item div {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Two-Column Layout for new.ejs and edit.ejs */
+.body-container,
+.edit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 50px;
+}
+
+.info {
+    margin-right: 500px;
+    margin-top: 80px;
+    font-size: larger;
+}
+
+.item-page-title {
+    font-family: "Shrikhand", serif;
+    font-size: 2em;
+    color: rgb(216, 72, 120);
+}
+
+/* Vertically Aligned Form Section */
+.col2, .edit-form {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align fields at the top */
+    gap: 15px; /* Add spacing between fields */
+}
+
+/* Input Fields and Labels in Forms */
+.col2 label, 
+.edit-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.col2 input, 
+.col2 select, 
+.col2 textarea, 
+.edit-form input, 
+.edit-form select, 
+.edit-form textarea {
+    width: 100%; /* Full width fields */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Left Side (Text/Image Section) */
+.col1, .edit-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack content vertically */
+    gap: 15px;
+}
+
+.edit-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles (Applies to all pages) */
+footer {
+    background-color: pink;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-icons i {
+    margin-left: 15px;
+    font-size: 1.5em;
+    position: relative;
+    left: -30px;;
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .items-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+
+    .item {
+        width: 180px;
+        height: 350px;
+    }
+
+    .body-container, .edit-container {
+        flex-direction: column;
+    }
+}
+
+/* index */
+.body-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Optional spacing between rows */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px; /* Optional spacing between items */
+    padding-right: 0px;
+}
+
+.home-img {
+    width: calc(25% - 10px); /* 4 items per row, accounting for gaps */
+    height: auto; /* Maintain image aspect ratio */
+    object-fit: cover; /* Ensures images fill the container without distortion */
+    aspect-ratio: 3 / 4; /* Makes the items square */
+    box-sizing: border-box; /* Includes padding/border in size */
+    padding: 0;
+}
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding/borders don't cause overflow */
+}
+
+html, body {
+    overflow-x: hidden; /* Hide horizontal overflow */
+    margin: 0;
+    padding: 0;
+}
+
+/* Flash messages */
+
+.success {
+    background: rgb(231, 250, 83);
+    color: #030000;
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    padding: 0.5rem 0;
+  
+}
+  
+.error {
+    background: rgba(251, 76, 18, 0.7);
+    color: #090000;
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.errorContainer{
+    display: flex;
+    background-color: var(--tan);
+}
+

@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+    <div class="body-container">
+        <h1 class="item-page-title">Item Details</h1> 
+        <% if (sale) { %>  
+            <div class="image">
+                <img src="/photos/<%= sale.image %>" alt="<%= sale.title %> Item Image">
+            </div>
+            <div class="info">
+                <h2 class="item-page-title"> <%= sale.title %> </h2>
+                    <h3><span class="label">Size: </span><%= sale.size %> </h3>
+                    <h3><span class="label">Condition:</span> <%= sale.condition %></h3>
+                    <h3><span class="label">Price: $</span> <%= sale.price %></h3>
+                    <h3><span class="label">Details:</span> <%= sale.details %></h3>
+                    <h3><span class="label">Offers:</span> <%= sale.offers %></h3>
+                    <h3><span class="label">Seller: </span> <%= sale.seller.firstName %></h3>
+                    <div>
+                        <!-- Edit Button: Navigate to Edit Page -->
+                        <a href="/items/<%= sale.id %>/edit">
+                            <button class="editBtn">Edit</button>
+                        </a>
+
+                        <!-- Delete Button: Perform Delete Action -->
+                        <form method="POST" action="/items/<%= sale.id %>?_method=DELETE" style="display: inline;">
+                            <button class="deleteBtn" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <div class="offerButtons">
+                        <form action="/items/<%= sale.id %>/offer/makeOffer" method="POST"> 
+                            <div class="offerInput">
+                                <label for="offer">Offer</label>
+                                <input type="number" id="offer" name="offer" required>
+                            </div>
+                            <div>
+                                <button class="offerBtn" type="submit"> Offer </button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            <% } else { %>  
+                <p>No item found.</p>
+            <% } %>
+        </div>
+</body>
+
+
+<%- include('../partials/footer.ejs') %>

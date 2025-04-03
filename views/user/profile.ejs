@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs') %>
+
+
+<main class="container">
+
+    <div class="sideMargin"></div>
+    <div class="mainProfileContainer">
+        <h2 class="profileTitle"> <%=user.firstName %>'s Listings</h2>
+        <div class="listingsContainer">
+            <div class="listingSale">
+                <% if (sales && sales.length > 0) { %>
+                    <% sales.forEach(sale => { %>  
+                        <div class="ItemsListing">
+                            <h2><%= sale.title %></h2>
+                            <h2><%= sale.size %></h2>
+                
+                            <form>
+                                <button type="submit" formmethod="get" formaction="/items/<%= sale.id %>/offer">View Offers</button>
+                                <button class="editBtnProfile" type="submit" formmethod="GET" formaction="/items/<%= sale.id %>/edit"> Edit </button>
+                                <button class="deleteBtnProfile" type="submit" formmethod="POST" formaction="/items/<%= sale.id %>?_method=DELETE"> Delete </button>
+                            </form>
+                        </div>
+                        <div>
+                        </div>
+                    <% }); %>  
+                <% } else { %>  
+                    <p>No items available at the moment.</p>
+                <% } %>
+            </div>
+        </div>
+        <h2 class="profileTitle"> <%=user.firstName %>'s Offers</h2>
+        
+        <div class="offersContainer"> 
+            <div class="listingItem">
+                <% if (offers && offers.length > 0) { %>
+                    <% offers.forEach(offer => { %>  
+                        <div class="albumListing">
+                            <h2><a href="/items/<%= offer.item %>"><%= offer.saleTitle %></a></h2> 
+                            <h2><%= offer.status %></h2>
+                            <h2> <%= "$" + offer.amount %></h2>
+                        </div>
+                    <% }); %>  
+                <% } else { %>  
+                    <p>No items available at the moment.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="sideMargin"></div>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>

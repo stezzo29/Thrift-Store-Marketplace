@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs')%>
+<main class="container">
+    
+    <div class="newContainer">
+        <div class="signUp">
+            <form action = '/users/login' method = 'POST' class="user-form">
+
+                <div>
+                    <label for="email">Email Address:</label></td>
+                    <input type="email" id="email" name="email" required></td>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required> 
+                </div>
+                <div class="form-group">
+                    <button type="submit">Log In</button> 
+                </div> 
+            </form>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs')%>

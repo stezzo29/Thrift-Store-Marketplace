@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+    <div class="sideMargin"></div>
+    <div class="mainProfileContainer">
+        <div class="offersContainer"> 
+            <div class="listing">
+                <% if (offers && offers.length > 0) { %>
+                    <% offers.forEach(offer => { %>  
+                        <div class="SaleListing">
+                            <h2>
+                                <%= offer.buyer 
+                                    ? `${offer.buyer.firstName} ${offer.buyer.lastName}` 
+                                    : "Unknown Buyer" %>
+                            </h2> 
+                            <h2><%= "$" + offer.amount %></h2>
+                            <form action="/items/<%= sale.id %>/offer/<%= offer.id %>/acceptOffer" method="POST">
+                                <button type="submit">Accept</button>
+                            </form>
+                        </div>
+                    <% }); %>  
+                <% } else { %>  
+                    <p>No items available at the moment.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="sideMargin"></div>
+</main>
+
+<%- include('../partials/footer.ejs') %>

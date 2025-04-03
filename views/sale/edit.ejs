@@ -1,0 +1,57 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+    <h1 class="intro">Edit Listing</h1>
+
+    <div class="edit-container">
+        <!-- Image Section -->
+        <div class="edit-image">
+            <img src="<%= sale.image %>" alt="<%= sale.title %> Item Image">
+        </div>
+
+        <!-- Form Section -->
+        <div class="edit-form">
+            <form method="POST" action="/items/<%= sale.id %>?_method=PUT" enctype="multipart/form-data">
+                <label for="condition">Update Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="brand-new" <%= sale.condition === 'brand-new' ? 'selected' : '' %>>Brand New</option>
+                    <option value="like-new" <%= sale.condition === 'like-new' ? 'selected' : '' %>>Like New</option>
+                    <option value="used-excellent" <%= sale.condition === 'used-excellent' ? 'selected' : '' %>>Used - Excellent</option>
+                    <option value="used-good" <%= sale.condition === 'used-good' ? 'selected' : '' %>>Used - Good</option>
+                    <option value="used-fair" <%= sale.condition === 'used-fair' ? 'selected' : '' %>>Used - Fair</option>
+                </select>
+
+                <label for="title">Update Item Name:</label>
+                <input type="text" id="title" name="title" value="<%= sale.title %>" required>
+
+                <label for="size">Update Size:</label>
+                <input type="text" id="size" name="size" value="<%= sale.size %>" required>
+
+                <label for="seller">Update Seller:</label>
+                <input type="text" id="seller" name="seller" value="<%= sale.seller %>" required>
+
+                <label for="price">Update Price:</label>
+                <input type="number" id="price" name="price" value="<%= sale.price %>" step="0.01" required>
+
+                <label for="details">Update Details:</label>
+                <textarea id="details" name="details" rows="5" required><%= sale.details %></textarea>
+
+                <label for="image">Update Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <small>Current image: <%= sale.image %></small>
+
+                <% if (locals.errors) { %>
+                    <div>
+                        <% for (let field in errors) { %>
+                            <p class="error"><%= errors[field].message %></p>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>

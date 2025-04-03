@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="body-container">
+        <div class="col1">
+            <h2 class="intro">Sell at Bratty Threads Boutique!</h2>
+            <p>.........</p>
+            <p>Upload a picture and tell us about your item. Simple as that!</p>
+        </div>
+        <div class="col2">
+            <form action="/items" method="post"  enctype="multipart/form-data">
+                <label for="condition">Condition: </label>
+                <select id="condition" name="condition" required>
+                    <option value="" disabled selected>Select Condition</option>
+                    <option value="brand-new">Brand New</option>
+                    <option value="like-new">Like New</option>
+                    <option value="used-excellent">Used - Excellent</option>
+                    <option value="used-good">Used - Good</option>
+                    <option value="used-fair">Used - Fair</option>
+
+                </select>
+               
+                <label for="title">Item Name: </label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="size">Size: </label>
+                <input type="text" id="size" name="size" required>
+
+                <label for="price">Price: </label>
+                <input type="number" id="price" name="price" step="0.01" min="0" required>
+
+                <label for="details">Details: </label>
+                <textarea id="details" name="details" rows="5" required></textarea>
+
+                <label for="image">Upload Image: </label>
+                <input type="file" id="image" name="image">
+
+                <button type="submit" id="submit">Submit Listing</button>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+
+    <form action="/search" method="GET" class="searchForm">
+        <input type="text" name="query" placeholder="Browse items by item name or seller.." required>
+        <button type="submit">Search</button>
+    </form>    
+
+    <div class="itemsContainer">
+        <% if (sales && sales.length > 0) { %>
+            <% sales.forEach(sale => { %>  
+                <div class="item">
+                    <a href="/items/<%= sale.id %>">
+                        <img src="<%= sale.image %>" alt="<%= sale.title %> Item Image">
+                    </a>
+                    <h1><%= sale.title %></h1>
+                    <h3><%= sale.seller %></h3>
+                    <h3 class="condition"><%= sale.condition %></h3>
+                    <div>
+                        <h3><span class="price">Price:</span> <%= sale.price %></h3>
+                        <h3><span class="Offers">Offers:</span> <%= sale.offers %></h3>
+                    </div>
+                </div>
+            <% }); %>  
+        <% } else { %>  
+            <p>There are currently no items matching your search.</p>
+        <% } %>
+    </div>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>

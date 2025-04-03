@@ -1,0 +1,37 @@
+
+<%- include('../partials/header.ejs') %>
+
+<body>
+    
+    <h1 class="intro">Browse Our Collection</h1>
+
+
+    <div class="main">
+        <h1 class="browse-title">Bratty Favoritez</h1>
+        <div class="items-container">
+            <% if (sales && sales.length > 0) { %>
+                <% sales.forEach(sale => { %>  
+                    <div class="item">
+                        <a href="/items/<%= sale.id %>">
+                            <img src="/photos/<%= sale.image %>" alt="<%= sale.title %> Item Image" width="200">
+
+                                               </a>
+                        <h1 class="item-title"><%= sale.title %></h1>
+                        <h3 class="condition"><span>Condition: </span><%= sale.condition %></h3>
+                        <div>
+                            <h3><span class="price">Price:</span> $<%= sale.price %></h3>
+                            <h3><span class="Offers">Offers:</span> <%= sale.offers %></h3>
+                        </div>
+
+                    </div>
+                <% }); %>  
+            <% } else { %>  
+                <p>There are currently no items available.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+
+<%- include('../partials/footer.ejs') %>
+

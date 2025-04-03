@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+<main class="container">
+        <div class="newContainer">
+                <div class="signUp>">
+                        <form action = '/users' method = 'POST' class="user-form">
+                                <div class="form-group-edit">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" required>    
+                                </div>
+                                <div class="form-group-edit">
+                                        <label for="lastName">Last Name</label></td>
+                                        <input type="text" id="lastName" name="lastName" required></td>    
+                                </div>
+                                <div class="form-group-edit" >
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email">     
+                                </div>
+                                <div class="form-group-edit">
+                                        <label for="password">Password</label>
+                                        <input type="password" id="password" name="password" minlength="8" required>    
+                                </div>
+                                <div  class="form-group">
+                                        <button type="submit">Sign Up</button>     
+                                </div>     
+                        </form>
+                </div>
+        </div>
+
+</main>
+<%- include('../partials/footer.ejs')%>
